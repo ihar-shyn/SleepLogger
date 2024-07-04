@@ -1,0 +1,56 @@
+POST http://localhost:8080/api/sleep/log
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "sleepDate": "2024-07-01",
+  "timeInBedStart": "21:00",
+  "timeInBedEnd": "07:00",
+  "totalTimeInBed": 600,
+  "userFeeling": "GOOD"
+}
+
+###
+POST http://localhost:8080/api/sleep/log
+Content-Type: application/json
+
+{
+"userId": 1,
+"sleepDate": "2024-07-02",
+"timeInBedStart": "21:00",
+"timeInBedEnd": "08:00",
+"totalTimeInBed": 660,
+"userFeeling": "OK"
+}
+
+###
+POST http://localhost:8080/api/sleep/log
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "sleepDate": "2024-07-03",
+  "timeInBedStart": "23:00",
+  "timeInBedEnd": "08:00",
+  "totalTimeInBed": 540,
+  "userFeeling": "OK"
+}
+
+###
+POST http://localhost:8080/api/sleep/log
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "sleepDate": "2024-07-04",
+  "timeInBedStart": "00:00",
+  "timeInBedEnd": "08:00",
+  "totalTimeInBed": 480,
+  "userFeeling": "GOOD"
+}
+
+###
+GET http://localhost:8080/api/sleep/last-night?userId=1
+
+###
+GET http://localhost:8080/api/sleep/last-30-days?userId=1
