@@ -11,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,6 +53,16 @@ public class SleepLogRepositoryTest {
         assertThat(result.get().getSleepDate()).isEqualTo(today);
     }
 
+    @Test
+    public void testFindAllByUserIdAndSleepDateBetween() {
+        List<SleepLog> result = repository.findAllByUserIdAndSleepDateBetween(1L, today.minusDays(10), today);
+        assertThat(result).isNotNull();
+        assertThat(result.size()).isEqualTo(2);
+        assertThat(result.get(0)).isNotNull();
+        assertThat(result.get(1)).isNotNull();
+        assertThat(result.get(0).getUserId()).isEqualTo(1L);
+        assertThat(result.get(0).getUserId()).isEqualTo(1L);
+    }
 
     @AfterEach
     public void cleanAll() {
